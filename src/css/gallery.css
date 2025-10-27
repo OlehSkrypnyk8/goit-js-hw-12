@@ -1,0 +1,138 @@
+.search-form { 
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+    width: 300px;
+    height: 40px;
+}
+.form-input {
+    width: 300px;
+    height: 30px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+    font-size: 18px;
+}
+
+.form-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+.btn {
+    padding: 0;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 120px;
+    height: 40px;
+}
+
+.btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #007bff, #0056b3)
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+    outline: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.5);
+    background: linear-gradient(135deg, #007bff, #0056b3)
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+
+}
+
+.gallery-item {
+    flex-basis: calc((100% - 16px) / 5);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);;
+}
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.19);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.gallery-img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+
+}
+
+.gallery-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px;
+    font-size: 20px;
+    color: #555;
+}
+
+.gallery-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.span-text {
+    font-weight: 700;
+    color: black;
+}
+.loader {
+    display: block;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
