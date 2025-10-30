@@ -85,7 +85,7 @@
 }
 
 .gallery-item {
-    flex-basis: calc((100% - 16px) / 5);
+    flex-basis: calc((100% - 16px) / 4);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);;
 }
