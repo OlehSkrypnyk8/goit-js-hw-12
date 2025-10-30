@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const perPage = 12;
+const perPage = 15;
 
 export async function getImagesByQuery(query, page = 1) {
   try {

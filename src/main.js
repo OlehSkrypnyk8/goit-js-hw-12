@@ -13,7 +13,7 @@ loadMore.addEventListener('click', onLoadMore)
 
 let page = 1;
 let currentQuery = "";
-const perPage = 12;
+const perPage = 15;
 let totalPages = 0;
 
 
