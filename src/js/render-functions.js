@@ -6,6 +6,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const form = document.querySelector('.form');
 const loader = document.querySelector('.loader');
 const galleryContainer = document.querySelector('.gallery');
+export const loadMore = document.querySelector('.load-more');
 const lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: 250,
@@ -41,4 +42,10 @@ export function showLoader() {
 
 export function hideLoader() {
     loader.classList.add('hidden');
+}
+export function showBtn() {
+    loadMore.classList.remove('hidden')
+}
+export function hideBtn() {
+    loadMore.classList.add('hidden')
 }
