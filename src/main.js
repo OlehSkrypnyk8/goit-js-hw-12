@@ -17,15 +17,17 @@ const perPage = 15;
 let totalPages = 0;
 
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault();
+    clearGallery();
+    hideBtn();
     showLoader();
     const query = form.elements['search-text'].value.trim();
-    clearGallery();
     if (!query) {
         iziToast.error({
             title: 'Error',
             message: "Please enter a search query.",
+            position: "topRight",
         });
         hideLoader();
         return;
@@ -33,17 +35,17 @@ function handleSubmit(event) {
     currentQuery = query;
     page = 1;
     input.placeholder = "";
-    getImagesByQuery(query, page)
-        .then(data => {
-            const images = data.hits;
-            totalPages = Math.ceil(data.totalHits / perPage);
+    try {
+        const data = await getImagesByQuery(query, page);
+        const images = data.hits;
+        totalPages = Math.ceil(data.totalHits / perPage);
             if (!images || images.length === 0) {
                 iziToast.error({
                     title: 'Error',
                     message: "Sorry, there are no images matching your search query. Please try again!",
                     position: "topRight"
                 });
-                
+                hideBtn();
                 return;
                 
             }
@@ -52,21 +54,23 @@ function handleSubmit(event) {
                 showBtn();
             } else {
                 hideBtn();
+                iziToast.info({
+                    message: "We're sorry, but you've reached the end of search results.",
+                    position: "topRight",
+                });
             }
-        })
-        .catch(error => {
-            iziToast.error({
-                title: 'Error',
-                message: "Sorry, there are no images matching your search query. Please try again!",
-                position: "topRight"
-            });
-            hideBtn();
-        })
-        .finally(() => {
-            hideLoader();
-            input.value = '';
-            input.placeholder = defaultPlaceholder;
+        }
+    catch (error) {
+        iziToast.error({
+            title: 'Error',
+            message: "Sorry, there are no images matching your search query. Please try again!",
+            position: "topRight"
         });
+        hideBtn();
+    } finally {
+            hideLoader();
+            input.placeholder = defaultPlaceholder;
+        }
 }
 async function onLoadMore() {
     page++

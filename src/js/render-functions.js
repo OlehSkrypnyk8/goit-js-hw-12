@@ -18,7 +18,7 @@ export function createGallery(images) {
         <li class="gallery-item">
             <div>
                 <a class="gallery-link" href="${image.largeImageURL}">
-                <img class="gallery-img" src="${image.webformatURL}" alt="${image.tags}" loading="lazy" width=450 height=300 />
+                <img class="gallery-img" src="${image.webformatURL}" alt="${image.tags}" loading="lazy" width=350 height=250 />
                 <div class="gallery-info">
                     <p class="gallery-text"> <span class ="span-text">Likes</span> ${image.likes}</p>
                     <p class="gallery-text"> <span class ="span-text">Views</span> ${image.views}</p>
